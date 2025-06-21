@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>           <!-- Bundles the runtime -->
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier> <!-- or win-x86, linux-x64, etc. -->
+    </PropertyGroup>
+</Project>
