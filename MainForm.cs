@@ -10,6 +10,7 @@ namespace SessionTrayMonitor
         private NotifyIcon trayIcon;
         private ContextMenuStrip trayMenu;
         private SessionMonitor monitor;
+        private LogViewerForm viewerForm;
 
         public MainForm()
         {
@@ -27,7 +28,15 @@ namespace SessionTrayMonitor
             };
 
             trayIcon.MouseClick += (s, e) => {
-                if (e.Button == MouseButtons.Left) new LogViewerForm().Show();
+                if (e.Button == MouseButtons.Left)
+                {
+                    if (viewerForm == null || viewerForm.IsDisposed)
+                        viewerForm = new LogViewerForm();
+                    else if (viewerForm.Visible)
+                        viewerForm.Close();
+                    else
+                        viewerForm.Show();
+                }
             };
 
             trayIcon.DoubleClick += (s, e) =>
